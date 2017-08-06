@@ -60,6 +60,11 @@ Locales = (function() {
     localeObject.appRatePromptMessage = (localeObject.appRatePromptMessage || '').replace(/%@/g, applicationTitle);
     localeObject.feedbackPromptMessage = (localeObject.feedbackPromptMessage || '').replace(/%@/g, applicationTitle);
     localeObject.message = localeObject.message.replace(/%@/g, applicationTitle);
+    for(var key in locales[LOCALE_DEFAULT])
+        {
+        if (!localeObject[key])
+            localeObject[key] = locales[LOCALE_DEFAULT][key].replace(/%@/g, applicationTitle);
+        }
     return localeObject;
   };
 
